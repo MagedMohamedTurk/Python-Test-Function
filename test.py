@@ -3,10 +3,11 @@ from collections import Counter
 import yaml
 
 
+# func_1 as example of single parameter function
 def func_1(param):
     ""
     # Uncomment the following line to debug the function
-    import pudb; pudb.set_trace()
+    # import pudb; pudb.set_trace()
     score = 0
     counter = Counter(param)
     if counter[1] >= 3:
@@ -36,6 +37,7 @@ def func_1(param):
     return score
 
 
+# two_sum as example of multiple parameters function
 def two_sum(numbers, target):
     import pudb; pudb.set_trace()
     required = {}
@@ -56,6 +58,7 @@ func_1_test_cases = {k: tuple(v) for k, v in
 two_sum_test_cases = {k: tuple(v) for k, v in
                      config['two_sum']['test_cases'].items()}
 
+
 # Testing func_1 against its testcases
 @pytest.mark.parametrize('param, expected', func_1_test_cases.values(),
                          ids=list(func_1_test_cases.keys()))
@@ -67,14 +70,16 @@ def test_func_1(param, expected):
     assert func_1(param) == expected
 
 
+# Testing two_sum function against its testcases
 @pytest.mark.parametrize('param, expected', two_sum_test_cases.values(),
                          ids=list(two_sum_test_cases.keys()))
 @pytest.mark.timeout(0.5)
 def test_two_sum(param, expected):
-    "tEST FOR FUNC()"
+    "TEST FOR FUNC()"
     print(40*'*')
     print('Input = ', param)
     print(40*'*')
-    assert two_sum(*param) == expected
+    assert two_sum(*param) == expected   # '*' should be included if
+                                       # more than one parameter passed.
 
 
