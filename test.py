@@ -7,7 +7,7 @@ import yaml
 def func_1(param):
     ""
     # Uncomment the following line to debug the function
-    # import pudb; pudb.set_trace()
+    #import pudb; pudb.set_trace()
     score = 0
     counter = Counter(param)
     if counter[1] >= 3:
@@ -39,7 +39,7 @@ def func_1(param):
 
 # two_sum as example of multiple parameters function
 def two_sum(numbers, target):
-    import pudb; pudb.set_trace()
+    #import pudb; pudb.set_trace()
     required = {}
     for i in range(len(numbers)):
         if target - numbers[i] in required.keys():
@@ -67,7 +67,10 @@ def test_func_1(param, expected):
     print(40*'*')
     print('Input = ', param)
     print(40*'*')
-    assert func_1(param) == expected
+    try:
+        assert func_1(param) == expected
+    except TypeError:
+        assert func_1(*param) == expected
 
 
 # Testing two_sum function against its testcases
@@ -79,7 +82,8 @@ def test_two_sum(param, expected):
     print(40*'*')
     print('Input = ', param)
     print(40*'*')
-    assert two_sum(*param) == expected   # '*' should be included if
-                                       # more than one parameter passed.
-
-
+    try:
+        assert two_sum(param) == expected
+    except TypeError:
+        assert two_sum(*param) == expected   # '*' should be included if
+        # more than one parameter is inserted
