@@ -52,6 +52,7 @@ def two_sum(numbers, target):
 with open('config.yaml') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
+
 # Loading test_cases for different functions
 func_1_test_cases = {k: tuple(v) for k, v in
                      config['func_1']['test_cases'].items()}
