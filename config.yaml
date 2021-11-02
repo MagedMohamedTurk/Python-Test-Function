@@ -1,3 +1,5 @@
+# Global parameters
+timeout : 0.5
 # Test cases number
 #       - Input parameters
 #       - Expected output

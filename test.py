@@ -1,10 +1,13 @@
 import pytest
 import yaml
 from code_file import *
-# Testing Unit
+
+
+# Loading config.yaml
 with open('config.yaml') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
+timeout = config['timeout']
 # Loading test_cases for different functions
 func_1_test_cases = {k: tuple(v) for k, v in
                      config['func_1']['test_cases'].items()}
@@ -29,7 +32,7 @@ def test_func_1(param, expected):
 # Testing two_sum function against its testcases
 @pytest.mark.parametrize('param, expected', two_sum_test_cases.values(),
                          ids=list(two_sum_test_cases.keys()))
-@pytest.mark.timeout(0.5)
+@pytest.mark.timeout(timeout)
 def test_two_sum(param, expected):
     "TEST FOR FUNC()"
     print(40*'*')
