@@ -1,18 +1,26 @@
 import pytest
 import yaml
 from code_file import *
-
+import code_file
+from inspect import getmembers, isfunction
 
 # Loading config.yaml
 with open('config.yaml') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
-
+# Loading global parameters
 timeout = config['timeout']
+
+# TODO load functions from the code_file
+funcs = [func[0] for func in getmembers(code_file) if isfunction(func[1])]
+print(funcs)
+
+# TODO loop through code_file functions
+
+
 # Loading test_cases for different functions
-func_1_test_cases = {k: tuple(v) for k, v in
-                     config['func_1']['test_cases'].items()}
-two_sum_test_cases = {k: tuple(v) for k, v in
-                     config['two_sum']['test_cases'].items()}
+for func in funcs:
+    globals()[func + '_test_cases'] = {k: tuple(v) for k, v in
+                         config[func]['test_cases'].items()}
 
 
 # Testing func_1 against its testcases
