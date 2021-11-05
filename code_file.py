@@ -45,4 +45,11 @@ def two_sum(numbers, target):
         else:
             required[numbers[i]] = i
 
+def z_square(x):
+    """TODO: Docstring for square.
 
+    :x: TODO
+    :returns: TODO
+
+    """
+    return x ** 2
