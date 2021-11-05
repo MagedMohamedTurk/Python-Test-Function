@@ -37,6 +37,7 @@ def func_1(param):
 
 # two_sum as example of multiple parameters function
 def two_sum(numbers, target):
+    # uncomment if you need debug the function
     #import pudb; pudb.set_trace()
     required = {}
     for i in range(len(numbers)):
@@ -45,7 +46,7 @@ def two_sum(numbers, target):
         else:
             required[numbers[i]] = i
 
-def z_square(x):
+def square(x):
     """TODO: Docstring for square.
 
     :x: TODO

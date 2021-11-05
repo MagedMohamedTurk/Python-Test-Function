@@ -38,8 +38,11 @@ two_sum:
         'test_case_3': 
                 - [[1, 7, 3], 10]
                 - !!python/tuple [1, 2]
-z_square:
+square:
     test_cases : 
         'test_case_1': 
                 - 2 
+                - 4
+        'test_case_2': 
+                - -2 
                 - 4
