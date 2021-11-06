@@ -54,9 +54,8 @@ def square(x):
 
     """
     return x ** 2
-# TODO make unoptimized version of function two_sum to get a timeout report
 def two_sum_unoptimized(numbers, target):
-    """TODO: Docstring for two_sum_unoptimized.
+    """: Docstring for two_sum_unoptimized.
     :numbers: group of numbers
     :target: number to be found by the summation of any two numbers
     :returns: tuple of location of two numbers that sum the target
@@ -67,3 +66,17 @@ def two_sum_unoptimized(numbers, target):
     for comb in combs:
         if sum(comb) == target:
            return (numbers.index(comb[0]), numbers.index(comb[1]))
+# TODO test function that returns not valid values
+def sqrt(x):
+    """returns the square root of a number: Docstring for sqrt.
+
+    :x: number
+    :returns: square root
+
+    """
+    if x >= 0:
+        return x ** 0.5
+    else :
+        return 'Invalid Negative number'
+
+

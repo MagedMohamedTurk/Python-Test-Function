@@ -2,7 +2,6 @@
 timeout : 0.5
 
 
-
 # Test cases number
 #       - Input parameters
 #       - Expected output
@@ -61,3 +60,15 @@ two_sum_unoptimized:
         'test_case_3': 
                 - [[1, 7, 3], 10]
                 - !!python/tuple [1, 2]
+
+                  
+sqrt:
+    test_cases : 
+        'test_case_1': 
+                - 16 
+                - 4
+        'test_case_2': 
+                - -16 
+                - 'Invalid Negative number'
+
+

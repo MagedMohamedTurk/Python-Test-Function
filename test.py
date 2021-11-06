@@ -6,14 +6,16 @@ from code_file import *
 
 
 # Loading config.yaml
-with open('config.yaml') as f:
-    config = yaml.load(f, Loader=yaml.FullLoader)
-    # Loading global parameters
-    timeout = config['timeout']
+try:
+    with open('config.yaml') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+        # Loading global parameters
+        timeout = config['timeout'] #TODO check time to be a number
+except (yaml.YAMLError, IOError):
+    print('Error loading <config.yaml> file')
 
 # Get functions names
 funcs = [func[0] for func in getmembers(code_file) if isfunction(func[1])]
-print(funcs)
 
 # TODO test if config.yaml is missing or bad formatted
 # Loading test_cases for different functions
