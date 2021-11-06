@@ -1,5 +1,5 @@
 from collections import Counter
-
+from itertools import combinations
 
 # func_1 as example of single parameter function
 def func_1(param):
@@ -38,7 +38,7 @@ def func_1(param):
 # two_sum as example of multiple parameters function
 def two_sum(numbers, target):
     # uncomment if you need debug the function
-    #import pudb; pudb.set_trace()
+    # import pudb; pudb.set_trace()
     required = {}
     for i in range(len(numbers)):
         if target - numbers[i] in required.keys():
@@ -54,3 +54,16 @@ def square(x):
 
     """
     return x ** 2
+# TODO make unoptimized version of function two_sum to get a timeout report
+def two_sum_unoptimized(numbers, target):
+    """TODO: Docstring for two_sum_unoptimized.
+    :numbers: group of numbers
+    :target: number to be found by the summation of any two numbers
+    :returns: tuple of location of two numbers that sum the target
+
+    """
+    combs = list(combinations(numbers, 2)) # not a good idea turning generator
+                                            # into list
+    for comb in combs:
+        if sum(comb) == target:
+           return (numbers.index(comb[0]), numbers.index(comb[1]))

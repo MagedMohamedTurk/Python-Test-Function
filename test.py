@@ -15,7 +15,7 @@ with open('config.yaml') as f:
 funcs = [func[0] for func in getmembers(code_file) if isfunction(func[1])]
 print(funcs)
 
-
+# TODO test if config.yaml is missing or bad formatted
 # Loading test_cases for different functions
 func_test_cases = []
 for func in funcs:
@@ -28,6 +28,7 @@ for func in funcs:
                          ids=list(item[-1]+' Case# :' for item in
                          func_test_cases)
                          )
+@pytest.mark.timeout(timeout)
 def test(param, expected, func):
     try:
         assert eval(func + '(*param) == expected')
