@@ -1,6 +1,8 @@
 # Global parameters
 timeout : 0.5
-code_file : code_file
+code_file :
+    - code_file
+    - code_file_2
 
 
 # Test cases number
@@ -73,3 +75,8 @@ sqrt:
                 - 'Invalid Negative number'
 
 
+sum_string:
+    test_cases : 
+        'test_case_1': 
+                - ['Maged', 'Mohamed' ]
+                - 'Maged Mohamed'

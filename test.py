@@ -8,17 +8,19 @@ try:
     with open('config.yaml') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
         # Loading global parameters
-        timeout = config['timeout'] #TODO check time to be a number
-        mod = config['code_file']
+        timeout = config['timeout']  # TODO check time to be a number
+        files = config['code_file']
 except (yaml.YAMLError, IOError):
     print('Error loading <config.yaml> file')
-
-mod_file = importlib.import_module(mod)
-# Import only functions from the files
-globals().update({name: value for name, value in mod_file.__dict__.items()
-                if callable(value)})
-# Get functions names
-funcs = [func[0] for func in getmembers(mod_file) if isfunction(func[1])]
+funcs = []
+for module in files:
+    mod_file = importlib.import_module(module)
+    # Import only functions from the files
+    globals().update({name: value for name, value in mod_file.__dict__.items()
+                    if callable(value)})
+    # Get functions names
+    funcs.extend([func[0] for func in getmembers(mod_file)
+                  if isfunction(func[1])])
 print(funcs)
 # TODO test if config.yaml is missing or bad formatted
 # Loading test_cases for different functions
