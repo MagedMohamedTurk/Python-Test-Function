@@ -1,13 +1,19 @@
 # Global parameters
-timeout : 0.5
-code_file :
+timeout : 0.5  # Time that cause timeout for functions
+code_file :  # List all code files here without .py extension 
     - code_file
     - code_file_2
 
 
-# Test cases number
-#       - Input parameters
-#       - Expected output
+######################################################################
+# Test Case Format
+# function name: (as in the code file)
+#   test_cases: (always the same)
+#       'test_case_1': (can be renamed anything between '')
+#           - Input parameters (multiple paramters should be in a list [])
+#           - Expected output  (exmaple for tuple >> !!python/tuple [1, 2]) 
+######################################################################
+
 
 func_1:
     test_cases : 
@@ -78,5 +84,5 @@ sqrt:
 sum_string:
     test_cases : 
         'test_case_1': 
-                - ['Maged', 'Mohamed' ]
-                - 'Maged Mohamed'
+                - ['Maged', 'Eltorkoman' ]
+                - 'Maged Eltorkoman'

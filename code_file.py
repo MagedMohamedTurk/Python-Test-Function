@@ -46,6 +46,7 @@ def two_sum(numbers, target):
         else:
             required[numbers[i]] = i
 
+
 def square(x):
     """TODO: Docstring for square.
 
@@ -54,6 +55,8 @@ def square(x):
 
     """
     return x ** 2
+
+
 def two_sum_unoptimized(numbers, target):
     """: Docstring for two_sum_unoptimized.
     :numbers: group of numbers
@@ -66,7 +69,8 @@ def two_sum_unoptimized(numbers, target):
     for comb in combs:
         if sum(comb) == target:
            return (numbers.index(comb[0]), numbers.index(comb[1]))
-# TODO test function that returns not valid values
+
+
 def sqrt(x):
     """returns the square root of a number: Docstring for sqrt.
 
@@ -78,5 +82,3 @@ def sqrt(x):
         return x ** 0.5
     else :
         return 'Invalid Negative number'
-
-
