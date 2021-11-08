@@ -1,5 +1,6 @@
 # Global parameters
 timeout : 0.5
+code_file : code_file
 
 
 # Test cases number
