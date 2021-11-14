@@ -29,9 +29,13 @@ for module in files:
 # TODO remove function if test case is not available
 # Loading test_cases for different functions
 func_test_cases = []
+func_with_no_case = []
 for func in funcs:
-    func_test_cases.extend(list((*v, func) for _, v in
-                           config[func]['test_cases'].items()))
+    if func in config.keys():
+        func_test_cases.extend(list((*v, func) for _, v in
+                               config[func]['test_cases'].items()))
+    else:
+        func_with_no_case.append(func)
 
 
 @pytest.mark.parametrize('param, expected, func',
@@ -45,3 +49,8 @@ def test(param, expected, func):
         assert eval(func + '(*param) == expected')
     except TypeError:
         assert eval(func + '(param) == expected')
+
+def test_valid_testcases():
+    for f in func_with_no_case:
+        print('\033[2;31;43mWARNING!!! \033[0;0m\n {}  --->  DOES NOT HAVE A VALID TESTCASE IN CONFIG.YAML FILE'.format(f))
+    assert False
