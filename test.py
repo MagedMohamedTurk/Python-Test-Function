@@ -25,7 +25,6 @@ for module in files:
     funcs.extend([func[0] for func in getmembers(mod_file)
                   if isfunction(func[1])])
 
-
 # TODO remove function if test case is not available
 # Loading test_cases for different functions
 func_test_cases = []
@@ -53,4 +52,5 @@ def test(param, expected, func):
 def test_valid_testcases():
     for f in func_with_no_case:
         print('\033[2;31;43mWARNING!!! \033[0;0m\n {}  --->  DOES NOT HAVE A VALID TESTCASE IN CONFIG.YAML FILE'.format(f))
-    assert False
+    if len(func_with_no_case) > 0:
+        assert False
