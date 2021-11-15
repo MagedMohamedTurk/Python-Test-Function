@@ -1,12 +1,11 @@
 # Global parameters
-timeout : 0.5  # Time that cause timeout for functions
+timeout: 0.5   # Time that cause timeout for functions
 
 # Check mini-project folder for examples
 # Uncomment to write the name of your code files
-#code_file :  # List all code files here without .py extension 
-#    - code_file_1
-#    - code_file_2
-#
+# List all code files here without .py extension
+code_file: []
+
 
 ######################################################################
 # Test Case Format
@@ -14,16 +13,17 @@ timeout : 0.5  # Time that cause timeout for functions
 #   test_cases: (always the same)
 #       'test_case_1': (can be renamed anything between '')
 #           - Input parameters (multiple paramters should be in a list [])
-#           - Expected output  (exmaple for tuple >> !!python/tuple [1, 2]) 
+#           - Expected output  (exmaple for tuple >> !!python/tuple [1, 2])
 ######################################################################
 
 # Uncomment to write your function test cases.
 
 #func_1:
-#    test_cases : 
-#        'test_case_1': 
-#                - [2, 3, 4, 6, 2] 
+#    test_cases :
+#        'test_case_1':
+#                - [2, 3, 4, 6, 2]
 #                - 0
-#        'test_case_2': 
+#        'test_case_2':
 #                - [4, 4, 4, 3, 3]
 #                - 400
+#

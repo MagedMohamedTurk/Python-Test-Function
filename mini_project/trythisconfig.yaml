@@ -6,8 +6,6 @@ timeout: 0.5   # Time that cause timeout for functions
 # List all code files here without .py extension
 code_file:
 - code_file_2
-- build_config
-- test
 - code_file_1
 
 

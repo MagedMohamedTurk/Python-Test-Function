@@ -2,11 +2,21 @@ import ruamel.yaml
 import os
 # get the path of the current directory
 path = os.getcwd()
+# Check if file exists
+while os.path.exists('trythisconfig.yaml'):
+    warning = input('Warning!! file already exists. Do you want to Overwrite?(Y-n)')
+    if warning.lower() in ['n', 'no']:
+        exit()
+    elif warning.lower() in ['y', 'yes', '']:
+        break
+    else:
+        print('Please enter (Y-n)')
+        continue
 directories = os.listdir(path)
 # This would print all the files and directories
 pyfiles = []
 for file in directories:
-    if file.endswith('.py'):
+    if file.endswith('.py') and file not in ['build_config.py', 'test.py']:
         pyfiles.append(file[:-3])
 
 yaml_str = """\
@@ -45,5 +55,5 @@ code_file :
 yaml = ruamel.yaml.YAML()  # defaults to round-trip if no parameters given
 code = yaml.load(yaml_str)
 code['code_file'] = pyfiles
-with open('trythisconfig.yaml', 'x') as f:
+with open('trythisconfig.yaml', 'w') as f:
     yaml.dump(code, f)
