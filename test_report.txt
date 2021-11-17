@@ -1,0 +1,8 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.8, pytest-6.2.5, py-1.10.0, pluggy-1.0.0 -- /home/maged/anaconda3/bin/python
+cachedir: .pytest_cache
+rootdir: /home/maged/test/test_func
+plugins: timeout-2.0.1, pudb-0.7.0, anyio-2.2.0
+collecting ... collected 0 items
+
+============================ no tests ran in 0.01s =============================

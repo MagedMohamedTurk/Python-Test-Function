@@ -3,7 +3,7 @@ import os
 # get the path of the current directory
 path = os.getcwd()
 # Check if file exists
-while os.path.exists('trythisconfig.yaml'):
+while os.path.exists('config.yaml'):
     warning = input('Warning!! file already exists. Do you want to Overwrite?(Y-n)')
     if warning.lower() in ['n', 'no']:
         exit()
@@ -55,5 +55,5 @@ code_file :
 yaml = ruamel.yaml.YAML()  # defaults to round-trip if no parameters given
 code = yaml.load(yaml_str)
 code['code_file'] = pyfiles
-with open('trythisconfig.yaml', 'w') as f:
+with open('config.yaml', 'w') as f:
     yaml.dump(code, f)
